@@ -2,14 +2,11 @@
 
 var grunt = require("grunt");
 
-module.exports = {
-  init_config: init_config,
-  load_tasks: load_task_configs
-}
+module.exports = init_config;
 
-function init_config (initial_object, task_configs_path) {
-  grunt.initConfig(init_object);
-  load_task_configs(task_configs_path);
+function init_config (options) {
+  grunt.initConfig(options);
+  load_task_configs(options.task_configs);
 }
 
 function load_task_configs (path) {
@@ -17,7 +14,7 @@ function load_task_configs (path) {
 
   config_files.forEach(function (file) {
     var plugin = get_filename(file);
-    var options = require(file);
+    var options = require(process.cwd() + "/" +  file);
     if (typeof options === "function") {
       options = options(grunt);
     }

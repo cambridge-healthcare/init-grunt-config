@@ -1,5 +1,5 @@
 {
-  "name": "load-grunt-config",
+  "name": "init-grunt-config",
   "version": "0.0.0",
   "description": "A Grunt helper to load task configuration files.",
   "main": "load-grunt-config.js",
@@ -12,14 +12,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cambridge-healthcare/load-grunt-config.git"
+    "url": "https://github.com/cambridge-healthcare/init-grunt-config.git"
   },
   "author": "Elise Hein <elise@howareyou.com>",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/cambridge-healthcare/load-grunt-config/issues"
+    "url": "https://github.com/cambridge-healthcare/init-grunt-config/issues"
   },
   "keywords": [
-    "grunt", "grunt tasks", "grunt task configuration", "grunt plugin management", "initconfig"
-  ] 
+    "grunt",
+    "grunt tasks",
+    "grunt task configuration",
+    "grunt plugin management",
+    "initconfig"
+  ]
 }

@@ -1,8 +1,8 @@
 {
   "name": "init-grunt-config",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A Grunt helper to load task configuration files.",
-  "main": "load-grunt-config.js",
+  "main": "init-grunt-config.js",
   "dependencies": {
     "grunt": "~0.4.2"
   },

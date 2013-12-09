@@ -1,4 +1,6 @@
-load-grunt-config
+
+init-grunt-config
 =================
 
-A small Grunt helper that loads grunt plugin configurations from a given folder into Gruntfile.js.
+Load grunt tasks and configuration files, set values, and bundle everything into grunt.initConfig.
+

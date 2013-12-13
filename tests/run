@@ -1,0 +1,8 @@
+#!/bin/bash
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+find "$SCRIPT_DIR"/* -type d -maxdepth 0 | while read dir; do
+  echo Testing in $dir
+  cd "$dir" && grunt
+done

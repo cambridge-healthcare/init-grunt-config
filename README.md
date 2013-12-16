@@ -1,23 +1,26 @@
-init-grunt-config
-=================
+# init-grunt-config
 
-Load grunt tasks and configuration files, set values, and bundle everything into grunt.initConfig.
+This plugin helps you organize the configuration of you grunt tasks in
+separate file for each task.
 
-### Usage
+## Usage
 
 Instead of defining everything inside `grunt.initConfig`, you can do the following:
 
-```
-var init_config = require("init-grunt-config");
+```js
+var load_configs = require("init-grunt-config");
 
-init_config({
-  // Your usual grunt config variables
-  pkg: grunt.file.readJSON("package.json"),
+module.exports = function (grunt) {
+  grunt.initConfig({ /* any global options */ });
+
+  // Load your tasks here, for example with load-grunt-tasks plugin.
 
   // Specify a folder that holds all of your
   // task configuration files in the form taskname.js
-  tasks: "tasks"
-});
+  load_configs("tasks");
+
+  // ...
+};
 ```
 
 The tasks folder:
@@ -30,9 +33,9 @@ The tasks folder:
 |-- ...
 ```
 
-Example task file:
+Example task configuration file:
 
-```
+```js
 // clean.js
 
 module.exports = {
@@ -41,5 +44,42 @@ module.exports = {
 }
 ```
 
-Voilà - the Gruntfile is now cleaner and more manageable, and each grunt plugin has its own separate file!
+Voilà - the Gruntfile is now cleaner and more manageable, and each
+grunt plugin has its own separate file!
 
+## Types of configuration files
+
+Each configuration file can be one of:
+
+- JSON file
+-   JavaScript file that exports an object
+
+    ```js
+    module.exports = { value: true };
+    ```
+
+-   JavaScript file that exports a function
+
+    ```js
+    module.exports = function (grunt) {
+      return {
+        value: true
+      };
+    }
+    ```
+
+## Tests
+
+Each test is an example project with a Gruntfile testing only one
+specific feature. You can run it with:
+
+```sh
+tests/run
+```
+
+## Contributing
+
+Please write a test case with before posting a Pull Request. PRs
+without tests are considered "requests for comments", which are
+welcome too if you want to discus some feature without necessarily
+going all the way with implementation.
